@@ -1,0 +1,11 @@
+# Wanted to streamline dev without having to build dockerfile everytime
+Makefile
+
+# Testing with live2d for the therapist model
+frontend-new
+
+**/.venv
+**/venv
+**/node_modules
+**/__pycache__/
+*.pyc
