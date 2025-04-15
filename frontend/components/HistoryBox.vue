@@ -95,7 +95,7 @@ export default {
   border-radius: 20px;
   border: 3px solid black;
   background-color: rgba(255, 209, 248, 0.88);
-  overflow-y: hidden;
+  overflow-y: auto;
   min-height: 20px;
   max-height: 400px;
   min-width: 50px;
@@ -120,33 +120,29 @@ export default {
 
 .history {
   position: fixed;
-  /* Position fixed to the bottom */
-  /* Center horizontally */
   bottom: 40px;
   right: 40px;
-  /* Distance from the bottom */
-  /* Offset by 50% of width to ensure true centering */
   width: 1000px;
   height: 1650px;
   padding: 10px;
-  /* Optional: Add some padding for the content */
   border-color: black;
   border-radius: 20px;
-  /* Optional: Rounded corners */
   font-size: 16px;
-  /* Font size */
-  background-color: rgb(217, 139, 166, 0.88)
-}
-
-.history {
+  background-color: rgb(217, 139, 166, 0.88);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 5fr 2fr;
+  grid-template-rows: 1fr 5fr 1fr;
   gap: 0px 0px;
   grid-template-areas:
     "title title title"
     "conversation conversation conversation"
     "footer footer footer";
+}
+
+.inner {
+  margin-top: 20px;
+  min-height: 200px;
+  max-height: 1000px;
 }
 
 .title {
@@ -155,6 +151,8 @@ export default {
 
 .conversation {
   grid-area: conversation;
+  overflow: hidden;
+  overflow-y: auto;
 }
 
 .footer {

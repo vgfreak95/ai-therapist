@@ -4,8 +4,7 @@
       <!-- <li id="buttons" @click="therapistChat"><a href="#">Anne Alysis</a></li> -->
     </ul>
     <textarea id="userInput" v-model="userInput" placeHolder="Type something here..."
-      @keydown.enter.prevent="sendMessage" @keydown.enter.exact.prevent="sendMessage" @keydown.shift.enter="addNewLine"
-      rows="5">
+      @keydown.enter.exact.prevent="sendMessage" @keydown.shift.enter="addNewLine" rows="5">
     </textarea>
     <button id="btn-chat-send" @click="sendMessage">Send</button>
   </div>
