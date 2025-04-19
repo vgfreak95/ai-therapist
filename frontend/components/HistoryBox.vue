@@ -4,12 +4,11 @@
       <label class="convo-title">Conversation</label>
     </div>
     <div class="conversation">
-      <div v-for="msg in chatHistory" :class="['chat-message', msg.sender == 'therapist' ? 'left' : 'right']">
-        {{ msg.message }}
-      </div>
-      <div class="footer">
-        <Chatbox @message-sent="handleUserMessage" ref="chatbox" />
-      </div>
+      <MessageBox v-for="msg in chatHistory" :key="msg.message"
+        :class="['chat-message', msg.sender === 'therapist' ? 'left' : 'right']" :messageContent="msg.message" />
+    </div>
+    <div class="footer">
+      <Chatbox @message-sent="handleUserMessage" ref="chatbox" />
     </div>
   </div>
 </template>
@@ -17,6 +16,7 @@
 
 <script>
 import Chatbox from '../components/Chatbox.vue'
+import MessageBox from '../components/MessageBox'
 
 
 export default {
@@ -128,7 +128,8 @@ export default {
   border-color: black;
   border-radius: 20px;
   font-size: 16px;
-  background-color: rgb(217, 139, 166, 0.88);
+  /* background-color: rgb(217, 139, 166, 0.88); */
+  background-color: rgb(5, 82, 138, 0.88);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 5fr 1fr;

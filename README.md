@@ -16,3 +16,29 @@ Her responses are tailored to be friendly and respectful of your feelings.
 ```bash
 docker compose up --build
 ```
+
+## Todos:
+- Build Problem Tree Solution with weights based training about the individual issues
+- Build more specialized agents with different counseling models (ex Family, Grief, etc) 
+- Map out memory specification details for therapy agents
+- Implement Settings
+
+
+## Counselor / Therapist Architecture
+
+Safety Agent -> (extends BaseTherapist) -> 
+
+- BaseTherapist <-> Memory Mapping / Problem Tree
+
+- /agents:
+  - base-agent.py
+  - /memory
+  - safety
+    - safety-utils
+    - agent.py
+  - directors
+    - director-utils
+    - agent.py
+  - counselors
+    - counselor-utils
+    - agent.py

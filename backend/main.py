@@ -6,7 +6,7 @@ from ollama import Client
 from api.ai_handler import Therapist
 
 
-app = FastAPI()# Allow frontend to access the backend
+app = FastAPI()  # Allow frontend to access the backend
 
 app.add_middleware(
     CORSMiddleware,
@@ -22,12 +22,14 @@ client = Client(
 )
 
 # Useful for testing different model behavior
-model = os.getenv("OLLAMA_MODEL", "mistral")
+model = os.getenv("OLLAMA_MODEL", "llama3.1")
 
 # Create the therapist
 anne = Therapist("Anne Alysis", 32, model, client)
 
+
 # TODO: Add support for other therapists
+
 
 @app.get("/intro")
 async def intro():
@@ -39,6 +41,7 @@ async def intro():
 
     # She introduces herself
     return await anne.chat(introduction)
+
 
 @app.post("/chat")
 async def chat(request: dict):
